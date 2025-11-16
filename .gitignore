@@ -1,0 +1,24 @@
+!.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+
+# Model artifacts
+model/*
+*.tar.gz
+*.safetensors
+*.gguf
+*.pt
+*.bin
+
+# Virtual envs
+venv/
+.env
+
+# Editor
+.vscode/
+.idea/
+
+# Cache
+.cache/
