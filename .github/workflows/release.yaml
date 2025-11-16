@@ -1,0 +1,48 @@
+name: Build & Release Model
+
+on:
+  workflow_dispatch:
+    inputs:
+      model_version:
+        description: "Model version to release"
+        required: true
+      repo_id:
+        description: "Hugging Face repo id (owner/model)"
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          pip install huggingface_hub
+
+      - name: Download model from HuggingFace Hub
+        env:
+          HUGGINGFACE_HUB_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python scripts/download.py --repo-id "${{ github.event.inputs.repo_id }}" --out model
+
+      # (Optional) Add quantization step:
+      - name: Quantize model
+        run: python scripts/quantize.py --model-dir model --out model_quantized
+
+      - name: Package model
+        run: |
+          python scripts/package_model.py --src model_src --version "${{ github.event.inputs.model_version }}" --out-dir dist
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: "v${{ github.event.inputs.model_version }}"
+          files: dist/model-${{ github.event.inputs.model_version }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
