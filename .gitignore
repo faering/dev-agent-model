@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 
 # Model artifacts
+model2/
 model/
 *.tar.gz
 *.safetensors

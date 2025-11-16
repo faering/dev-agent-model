@@ -3,7 +3,8 @@ import argparse
 import time
 import sys
 from pathlib import Path
-from huggingface_hub import snapshot_download, RepositoryNotFoundError
+from huggingface_hub import snapshot_download
+from huggingface_hub.errors import RepositoryNotFoundError
 
 from .utils import ensure_dir, get_token
 

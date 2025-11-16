@@ -37,7 +37,7 @@ jobs:
 
       - name: Package model
         run: |
-          python scripts/package_model.py --src model_src --version "${{ github.event.inputs.model_version }}" --out-dir dist
+          python scripts/package_model.py --src model --version "${{ github.event.inputs.model_version }}" --out-dir dist
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
