@@ -3,7 +3,7 @@ import argparse
 import tarfile
 from pathlib import Path
 
-from .utils import ensure_dir
+from utils import ensure_dir
 
 
 def make_tarball(src: Path, out: Path):

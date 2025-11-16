@@ -6,7 +6,7 @@ from pathlib import Path
 from huggingface_hub import snapshot_download
 from huggingface_hub.errors import RepositoryNotFoundError
 
-from .utils import ensure_dir, get_token
+from utils import ensure_dir, get_token
 
 
 def download_model(repo_id: str, out_dir: Path, revision: str | None = None):

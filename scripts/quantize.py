@@ -8,7 +8,7 @@ This is only a template; adjust to your target quantizer.
 import argparse
 from pathlib import Path
 
-from .utils import ensure_dir
+from utils import ensure_dir
 
 #################################
 # GGUF QUANTIZATION (llama.cpp)
