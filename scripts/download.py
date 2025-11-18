@@ -28,8 +28,7 @@ def download_model(repo_id: str, out_dir: Path, revision: str | None = None):
                 revision=revision,
                 allow_patterns=None,
                 token=token,
-                local_dir=str(out_dir),
-                local_dir_use_symlinks=False,
+                local_dir=str(out_dir)
             )
 
             print(f"[download] Done → {downloaded}")
