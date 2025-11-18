@@ -4,8 +4,8 @@ This repository handles everything related to preparing a **local model** for th
 
 ## Todo
 
-<input type="checkbox"> Modify codebase to check if download model is already quantized (quantization step is hardcoded in release workflow)<br>
-<input type="checkbox"> Check if there is a better format for the release asset in Github, currently released in .tar.gz
+- [ ] Modify codebase to check if download model is already quantized (quantization step is hardcoded in release workflow)<br>
+- [ ] Check if there is a better format for the release asset in Github, currently released in .tar.gz
 
 ## Features
 
@@ -31,3 +31,4 @@ Run the workflow manually from GitHub Actions:
 Inputs:
 - `repo_id`: e.g. `meta-llama/Meta-Llama-3.1-8B`
 - `model_version`: e.g. `v0.1.0`
+
